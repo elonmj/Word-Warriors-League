@@ -1,8 +1,8 @@
 import random as rd
 from datetime import datetime, timedelta
 
-def vendredi(date):
-    while date.weekday() != 4:  # 2 correspond à mardi (lundi = 0, mardi = 1, ...)
+def samedi(date):
+    while date.weekday() != 5:  # 2 correspond à mardi (lundi = 0, mardi = 1, ...)
         date -= timedelta(days=1)
     return date
 

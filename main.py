@@ -7,8 +7,8 @@ from Functions import *
 RESET_TO_OLD = False
 RESET = False
 CHANGE = True
-CURRENT_DATE = vendredi(datetime.now())
-OLD_DATE = vendredi(datetime.now()-timedelta(weeks =1))
+CURRENT_DATE = samedi(datetime.now())
+OLD_DATE = samedi(datetime.now()-timedelta(weeks =1))
 SEED = CURRENT_DATE.day
 
 rd.seed(SEED)
