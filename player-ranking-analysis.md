@@ -1,101 +1,42 @@
-# Analyse du système de classement actuel
+## Analyse et Améliorations du Système de Classement des Joueurs
 
-## Points forts
-- Prise en compte de multiples facteurs (catégorie, victoires/défaites, catégorie moyenne)
-- Pondération des facteurs (α, β, γ) permettant d'ajuster l'importance de chaque élément
-- Calcul de la catégorie moyenne reflétant la performance globale
+## Système Actuel
 
-## Suggestions d'amélioration
-1. **Historique des matchs** : Considérer l'ordre chronologique des matchs, en donnant plus de poids aux matchs récents.
+Le système de classement actuel se base sur le ratio Victoires/Matchs Joués (V/MJ) calculé pour chaque joueur. Les joueurs sont ensuite classés globalement, tous confondus, en fonction de ce ratio.
 
-2. **Différence de niveau** : Intégrer l'écart de niveau entre les joueurs dans le calcul des points de victoire/défaite.
+**Points Forts :**
 
-3. **Streak de victoires/défaites** : Récompenser les séries de victoires consécutives ou pénaliser les séries de défaites.
+* Simple à comprendre et à calculer.
+* Donne une idée générale de la performance des joueurs.
 
-4. **Activité du joueur** : Introduire un facteur d'activité pour favoriser les joueurs réguliers.
+**Points Faibles :**
 
-5. **Normalisation des scores** : Utiliser une méthode de normalisation (ex: z-score) pour rendre les différents facteurs plus comparables.
+* Ne prend pas en compte la force des adversaires.
+* **Ne reflète pas la forme récente des joueurs.** 
+* N'offre pas de classement par catégorie.
+* Les scores précis des matchs ne sont pas utilisés.
+* **Ne pénalise pas l'inactivité.**
 
-6. **Facteur de difficulté des adversaires** : Prendre en compte la force moyenne des adversaires affrontés.
+## Améliorations Proposées
 
-7. **Système de décroissance** : Implémenter une décroissance graduelle des points au fil du temps pour refléter la forme actuelle.
+### 1. Classement Hebdomadaire Dynamique
 
-8. **Intervalle de confiance** : Ajouter un intervalle de confiance au score final pour refléter la fiabilité du classement en fonction du nombre de matchs joués.
+* **Implémenter un classement hebdomadaire :** Calculer le ratio V/MJ sur les *N* dernières semaines (avec *N* paramétrable) et afficher le classement mis à jour chaque semaine.
+* **Option "toutes les semaines" :** Permettre de générer un classement sur toutes les semaines passées si nécessaire.
+* **Implémenter un système de décroissance :** Diminuer progressivement le ratio V/MJ des joueurs inactifs (qui n'ont pas joué depuis un certain nombre de semaines) pour refléter leur perte de forme potentielle.
 
-Ces améliorations permettraient d'obtenir un classement plus précis et représentatif de la performance réelle des joueurs.
+### 2. Nouveau Système de Parcours
 
-# Prise en compte des matchs aléatoires :
+* **Passer au format JSON :** Stocker les informations du parcours des joueurs (adversaires, résultats, scores, bonus, dates des matchs) dans un fichier JSON pour une meilleure structuration et manipulation des données.
+* **Affichage en Markdown :** Créer une fonction Python pour générer un affichage Markdown du parcours des joueurs, avec la possibilité de filtrer les résultats sur les *N* dernières semaines.
 
-Pour intégrer l'information sur les matchs aléatoires, nous pourrions :
-a) Pondérer différemment les résultats aléatoires :
+### 3. Autres Améliorations Potentielles (à discuter)
 
-Réduire l'impact des victoires/défaites aléatoires sur le score final.
-Par exemple, multiplier les points de ces matchs par un facteur 0.5.
+* **Prendre en compte la force des adversaires :** Ajuster le calcul du classement en fonction de la difficulté des matchs joués.
+* **Intégrer les scores des matchs :** Utiliser les scores précis pour un classement plus fin et représentatif.
+* **Ajouter des bonus/malus stratégiques :** Récompenser les victoires contre des joueurs mieux classés et pénaliser les défaites contre des joueurs moins bien classés.
+* **Créer des classements par catégorie :** Permettre de comparer les joueurs au sein de leur propre catégorie.
 
-b) Créer une nouvelle métrique "Chance" :
+## Conclusion
 
-Calculer le ratio de victoires aléatoires par rapport au total des matchs aléatoires.
-Intégrer cette métrique dans le calcul du score final.
-
-c) Ajuster la formule de score final :
-def calculer_score_classement(points_par_categorie, nb_victoire, nb_victoire_random, categorie_moyenne, nb_matchs_random):
-    alpha = 0.4
-    beta = 0.3
-    gamma = 0.2
-    delta = 0.1  # Nouveau coefficient pour la chance
-    
-    score_categorie = points_par_categorie
-    score_victoire = nb_victoire * 3 + nb_victoire_random * 1.5  # Victoires aléatoires valent moins
-    score_categorie_moyenne = categories[categorie_moyenne]
-    score_chance = nb_victoire_random / nb_matchs_random if nb_matchs_random > 0 else 0.5
-    
-    score_final = alpha * score_categorie + beta * score_victoire + gamma * score_categorie_moyenne + delta * score_chance
-    
-    return score_final * 20
-
-# Classement hebdomadaire :
-
-Pour un classement hebdomadaire, nous pourrions :
-a) Utiliser une fenêtre glissante :
-
-Ne considérer que les N dernières semaines pour le calcul du score.
-Ajuster N en fonction de la fréquence des matchs.
-
-b) Introduire un facteur de forme :
-
-Donner plus de poids aux performances récentes.
-Par exemple, utiliser une moyenne pondérée exponentielle.
-
-c) Calculer un "delta" hebdomadaire :
-
-Comparer le score de la semaine actuelle à celui de la semaine précédente.
-Afficher la progression ou la régression des joueurs.
-
-d) Prendre en compte l'activité récente :
-
-Ajouter un bonus pour les joueurs ayant participé à des matchs récemment.
-Pénaliser légèrement les joueurs inactifs.
-
-import math
-
-def calculer_score_hebdomadaire(matchs_recents, nb_semaines=4):
-    score_total = 0
-    poids_total = 0
-    
-    for semaine, resultats in enumerate(matchs_recents[-nb_semaines:], 1):
-        points_semaine = calculer_points_semaine(resultats)
-        poids = math.exp(semaine / nb_semaines) - 1  # Fonction de poids exponentielle
-        
-        score_total += points_semaine * poids
-        poids_total += poids
-    
-    return score_total / poids_total if poids_total > 0 else 0
-
-def calculer_points_semaine(resultats):
-    points = 0
-    for match in resultats:
-        if match['resultat'] == 'victoire':
-            points += 3 if not match['random'] else 1.5
-        elif match['resultat'] == 'defaite':
-            points -= 1 if not match['random'] else 0.5
-    return points
+En intégrant le classement hebdomadaire dynamique, le nouveau système de parcours et le système de décroissance pour les joueurs inactifs, le classement deviendra plus précis, dynamique et représentatif de la forme actuelle des joueurs. Les autres améliorations potentielles pourront être étudiées ultérieurement pour affiner encore davantage le système.

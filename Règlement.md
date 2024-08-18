@@ -1,41 +1,44 @@
-Je vous présente la Word Warriors League.
-Présentation brève : notre tournoi en ligne :
-Dossier drive :
- NB : Le nom attribué à la league est en version bêta, toutes améliorations, propositions ou contestations de son choix sont possibles encore pour un bref délai.
+# Règlement de la Word Warriors League
 
-Explanation : Il s'agit d'une sorte de ligue visant à organiser pour chaque membre un duel par semaine.
-Caractéristiques : Il s'organise en saisons comme toute ligue, non occasionnel donc comme tous nos autres tournois en présentiel comme en ligne. Une saison est sensé durer tout au minimum 12 semaines, 12 duels donc.
+## Introduction
 
-Objectif gagnant : faire partie du top dans le classement.
+**Présentation brève :** Notre tournoi en ligne, la Word Warriors League, vise à organiser un duel par semaine pour chaque membre.
 
-Les duels visent à faire un classement ( non définitif ni valable pour quelconque activité de disctinction des membres du club hors de la ligue ) des membres du club en catégories d'un nombre d'au moins 4 personnes.
+**NB :** Le nom de la ligue est encore en version bêta. Toutes les améliorations, propositions ou contestations concernant son choix sont encore possibles pour un bref délai.
 
-La meilleure catégorie est la A
+## Concept
 
-Fonctionnement : Lorsque vous perdez un duel, vous êtes recalés dans la catégorie directement inférieure à la vôtre.
-Lorsque vous gagnez, vous montez en catégorie.
+**Explication :** Il s'agit d'une ligue qui structure des duels hebdomadaires pour ses membres.
 
-Les duels se font dans la durée d'une semaine, la décision du vainqueur en cas de retard ou duels non faits revient simplement à une fonction de la bibliothèque RANDOM en python qui en se basant sur une loi de distribution normale choisit le vainqueur : proba 0.5 pour chaque duelliste
+**Caractéristiques :** 
 
-😊Si tout se passe bien donc, un duel doit être en un nombre de matchs impairs : 1, 3, 5 ...
-La décision de ce nombre revient aux joueurs seuls et elle doit être prise avant tout match pour éviter tout litige
+* La ligue est organisée en saisons, comme toute ligue digne de ce nom. Elle n'est donc pas occasionnelle, à l'instar de nos autres tournois en présentiel et en ligne.
+* Une saison dure au minimum 12 semaines, soit 12 duels.
 
-Prime : à la sortie des 12 phases de la ligue, le top n'est rien d'autre que les membres figurant au sommet des catégories : la best catégorie, A
-Ni récompenses, ni distinctions sinon l'honneur de figurer dans le top et une entrée dans l'histoire du club ( Statistiques bien tenues ) ne seront attribués pour cet accomplissement, caractère muable et non définitif de la ligue
+**Objectif gagnant :** Atteindre le sommet du classement.
 
-Divers : l'inclusion de nouvelles personnes possible rien que lors des quatre premières phases de la ligue se fait en créant une nouvelle catégorie au bas de l'échelle ce qui exige donc qu'elles soient au nombre défini par catégorie.
+**Les duels :** Ils servent à établir un classement (non définitif ni valable pour une quelconque activité de distinction).
 
-Toute saison commence par une distinction complètement aléatoire des joueurs dans les catégories, 12 semaines ou phases vous sont donc offertes pour prendre la tête.
+## Ressources
 
-Revenons en aux rôles des fichiers dans le dossier
+### Dossier Drive
 
-La consultation de son duel de la semaine est possible dans le fichier Match : 
-Lien
+* **Lien :** [Insérer le lien vers le dossier Drive ici]
 
-Le fichier parcours vous offre les statistiques de  l'évolution des joueurs depuis leur premier duel jusqu'à la phase présente.
-Lien drive :
+### Fichier Parcours
 
-Categories, peut être le plus important des fichiers, il tient lieu de feuille de route de la Word Warriors League en offrant à chaque étape du tournoi, le classement des joueurs.
-Lien drive :
+* **Description :** Ce fichier offre les statistiques de l'évolution des joueurs depuis leur premier duel jusqu'à la phase actuelle.
+* **Lien :** [Insérer le lien vers le fichier Parcours ici]
 
-NB : les fichiers main et Functions .py contiennent le code d'attribution et de génération des duels. Toute suggestion par rapport est la bienvenue
+### Fichier Catégories
+
+* **Description :** Ce fichier, sans doute le plus important, sert de feuille de route de la Word Warriors League en offrant à chaque étape du tournoi le classement des joueurs.
+* **Lien :** [Insérer le lien vers le fichier Catégories ici]
+
+## Code Source
+
+**NB :** Les fichiers `main.py` et `Functions.py` contiennent le code d'attribution et de génération des duels. Toute suggestion à ce sujet est la bienvenue.
+
+## Contact
+
+Pour toute question ou suggestion, veuillez contacter [Insérer l'adresse email ou le moyen de contact ici].
