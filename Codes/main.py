@@ -4,6 +4,7 @@ from copy import  deepcopy
 
 from Functions import *
 
+
 RESET_TO_OLD = False
 CHANGE = True
 
@@ -11,6 +12,7 @@ RESET = False
 CURRENT_DATE = dimanche(datetime.now())
 OLD_DATE = dimanche(datetime.now()-timedelta(weeks =1))
 SEED = CURRENT_DATE.day
+
 
 rd.seed(SEED)
 Nb_by_group = 4
@@ -50,7 +52,7 @@ if RESET_TO_OLD == True:
     duplicate("OldParcours.txt", "Parcours.txt")
     exit() 
 
-
+dir = ".Data/"
 #Voir l'update actuel des  category
  
  # Récupération de l'état passé
