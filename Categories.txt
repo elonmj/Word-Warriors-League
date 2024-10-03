@@ -1,26 +1,26 @@
-Date: 16-08-2024
+Date: 29-09-2024
 
 Category A:
-	Oswalde
-	Gabimaru9
+	bado
 	20067s
-	sessi7
+	Ida0505
+	Oswalde
 
 Category B:
-	Kpalingan
 	Mya17
-	kras30
-	Gerse3
+	fofolle24
+	Divino
+	Kpanligan
 
 Category C:
-	bado
-	Toxicboy
-	Orens
+	joselonm
 	Caerys
+	Gabimaru9
+	sessi7
 
 Category D:
-	Divino
-	fofolle24
-	YasminaS
-	joselonm
+	Chezrac
+	Gerse3
+	Toxicboy
+	kras30
 

@@ -1,11 +1,9 @@
-
-
 # Fonction pour attribuer des points en fonction de la catégorie
 def attribuer_points_par_categorie(parcours):
-    points = 0
-    categories = {'A': 5, 'B': 4, 'C': 3, 'D': 2, 'E': 1}
-    for categorie in parcours:
-        points += categories[categorie]
+    
+    categories = {'A': [2,-1], 'B': [1.75,-1.5], 'C': [1.25,-1.75], 'D': [1,-2]}
+    
+
     return points
 
 # Fonction pour attribuer des points en fonction des victoires/défaites

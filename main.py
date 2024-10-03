@@ -5,10 +5,11 @@ from copy import  deepcopy
 from Functions import *
 
 RESET_TO_OLD = False
-RESET = False
 CHANGE = True
-CURRENT_DATE = samedi(datetime.now())
-OLD_DATE = samedi(datetime.now()-timedelta(weeks =1))
+
+RESET = False
+CURRENT_DATE = dimanche(datetime.now())
+OLD_DATE = dimanche(datetime.now()-timedelta(weeks =1))
 SEED = CURRENT_DATE.day
 
 rd.seed(SEED)
@@ -27,12 +28,13 @@ names = [
     'Divino',
     'Orens',
     'Caerys',
-    'Kpalingan',
+    'Kpanligan',
     'kras30',
     'Oswalde'
 ]
 
 if RESET == True:
+    # if len(names)== 0 : print("ERROR")
     category = listing(names, Nb_by_group)
     write_groups("Categories.txt", CURRENT_DATE, category)
     matching_and_writing(category, "Matches.txt",CURRENT_DATE)
@@ -60,7 +62,6 @@ date_matchs, results, moment = read_matches("Matches.txt", CURRENT_DATE)
 print("Results\n",results, "\n\n")
 
  # Current new classment
-
 new_groups = update_category(deepcopy(groups), results)
 print("NEW GROUPS","\n",new_groups, "\n\n")
 

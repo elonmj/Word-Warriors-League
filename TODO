@@ -1,4 +1,48 @@
-Faire pour qu'un joueur ne jouant pas un match et gagnant aléatoirement n'ait pas de bonus 
+Nouvelle architecture
 
-Faire un classement mensuel
+Dossier LOGIQUE
+    FICHIER Lecture
+        Fonction read_categories
+        Fonction read_matches
+    FICHIER Ecriture
+        Fonction report_match
+        Fonction report_categories
+        Fonction report_parcours
+        Fonction report_classment
+    FICHIER Update
+        Fonction update_categories
+        Fonction update_parcours
+    FICHIER RESET 
+        Fonction reset_all
+        Fonction reset_last
+    FICHIER Action
+        Fonction do_list
+        Fonction do_match
+        Fonction do_classment
+    FICHIER Export
+        Fonction download_classment_current
+        Fonction download_classment_global
+        Fonction download_matchs
+        Fonction download_categories
+    FICHIER Classes
+        Classe Player
+        Classe Categorie 
+    FICHIER Others
+        Fonction samedi
+    
 
+DOSSIER DATABASE
+    FICHIER Data_global
+    FICHIER Data_current
+    FICHIER Matchs
+    FICHIER Categories
+    FICHIER Classement_current
+    FICHIER Classement_global
+
+DOSSIER PAGES
+    FICHIER Matchs
+    FICHIER Categories
+    FICHIER Classement_current
+    FICHIER Classement_global
+
+FICHIER main

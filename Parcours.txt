@@ -1,32 +1,38 @@
-Oswalde(09-08-2024) : A ↔ 
+Oswalde(09-08-2024) : A ↔B ↓ (R)C ↑ (R)B ↑ (R) 
 
-Gabimaru9(09-08-2024) : A ↔ 
+Gabimaru9(09-08-2024) : A ↔A ↔A ↓B ↓ (R) 
 
-20067s(09-08-2024) : B ↑ 
+20067s(09-08-2024) : B ↑A ↓B ↑A ↔ 
 
-sessi7(09-08-2024) : B ↑ 
+sessi7(09-08-2024) : B ↑B ↑ (R)A ↓B ↓ (R) 
 
-Kpalingan(09-08-2024) : C ↑ (R) 
+Kpanligan(09-08-2024) : C ↑ (R)A ↔A ↔A ↓ 
 
-Mya17(09-08-2024) : C ↑ 
+Mya17(09-08-2024) : C ↑A ↓B ↓C ↑ (R) 
 
-bado(09-08-2024) : D ↑ (R) 
+bado(09-08-2024) : D ↑ (R)B ↑A ↔A ↔ 
 
-Toxicboy(09-08-2024) : D ↑ 
+Toxicboy(09-08-2024) : D ↑D ↔D ↑C ↓ (R) 
 
-kras30(09-08-2024) : A ↓ 
+kras30(09-08-2024) : A ↓C ↑B ↓ (R)C ↓ (R) 
 
-Gerse3(09-08-2024) : A ↓ 
+Gerse3(09-08-2024) : A ↓C ↓ (R)D ↔ (R)D ↔ (R) 
 
-Orens(09-08-2024) : B ↓ 
+Orens(09-08-2024) : B ↓
 
-Caerys(09-08-2024) : B ↓ 
+Caerys(09-08-2024) : B ↓B ↓C ↓ (R)D ↑ (R) 
 
-YasminaS(09-08-2024) : C ↓ (R) 
+YasminaS(09-08-2024) : C ↓ (R)
 
-joselonm(09-08-2024) : C ↓ 
+joselonm(09-08-2024) : C ↓D ↑C ↓D ↑ 
 
-fofolle24(09-08-2024) : D ↔ (R) 
+fofolle24(09-08-2024) : D ↔ (R)C ↓D ↑ (R)C ↑ (R) 
 
-Divino(09-08-2024) : D ↔ 
+Divino(09-08-2024) : D ↔C ↑ (R)B ↑ (R)A ↓ 
+
+JessIda(24-08-2024) : D ↑ (R)C ↑
+
+Chezrac(24-08-2024) : D ↔ (R)D ↔D ↔ 
+
+Ida0505(15-09-2024) : B ↑ (R) 
 

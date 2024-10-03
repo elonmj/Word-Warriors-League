@@ -1,0 +1,67 @@
+classDiagram
+    class Event {
+        -int id
+        -string name
+        -date startDate
+        -date endDate
+        -bool isOpen
+        +getMatches()
+        +getPlayers()
+        +getStatistics()
+        +getClassification()
+    }
+    
+    class Match {
+        -int id
+        -int eventId
+        -string player1
+        -string player2
+        -string category
+        -string status
+        -string winner
+        -string loser
+        -bool isRandom
+        +updateResult(winner, loser)
+        +approveResult(playerId)
+    }
+    
+    class Player {
+        -int id
+        -string name
+        -string category
+        +updateCategory(newCategory)
+        +getMatchHistory()
+    }
+    
+    class Category {
+        -string name
+        -int rank
+        +getPlayers()
+    }
+    
+    class Statistics {
+        -int eventId
+        +generatePlayerStats(playerId)
+        +generateEventStats()
+    }
+    
+    class Classification {
+        -int eventId
+        +getCurrentRankings()
+        +updateRankings()
+    }
+    
+    class EventManager {
+        +createEvent(name, startDate, endDate)
+        +closeEvent(eventId)
+        +reopenEvent(eventId)
+        +generateMatches(eventId)
+    }
+    
+    Event "1" -- "*" Match
+    Event "1" -- "*" Player
+    Event "1" -- "1" Statistics
+    Event "1" -- "1" Classification
+    Match "0..2" -- "1" Player
+    Player "1" -- "1" Category
+    EventManager -- Event

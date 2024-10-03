@@ -1,8 +1,8 @@
 import random as rd
 from datetime import datetime, timedelta
 
-def samedi(date):
-    while date.weekday() != 5:  # 2 correspond à mardi (lundi = 0, mardi = 1, ...)
+def dimanche(date):
+    while date.weekday() != 6:  # 2 correspond à mardi (lundi = 0, mardi = 1, ...)
         date -= timedelta(days=1)
     return date
 
@@ -34,7 +34,6 @@ def listing(names, nb_by_group= 0 ,minimum_ajout_by_group = 2):
 
     return category
 
-
 def matching_and_writing(groups, filename, date):
     
     with open(filename, 'w', encoding='utf-8') as file:
@@ -57,7 +56,6 @@ def matching_and_writing(groups, filename, date):
                 file.write(f"\t{match[0]} vs. {match[1]} :\n")
             file.write("\n")
     
-
 def read_matches(filename, current_date):
     with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -130,10 +128,6 @@ def read_matches(filename, current_date):
     
     return date, results, moment
 
-
-
-
-
 def update_category(groups, results):
     # if faut faire pour les winners à part et pour les perdants à part à cause des rachats possibles
     achivements = []
@@ -176,7 +170,6 @@ def update_category(groups, results):
             groups[next].append(loser)
     return groups
 
-
 def write_groups(filename, date, groups):
     with open(filename, 'w', encoding='utf-8') as file:
 
@@ -207,7 +200,6 @@ def read_groups(filename):
             groups[current_category].append(line)
     
     return date, groups
-
 
 def update_parcours(filename, results, categories, date):
     last_achievements = {}
@@ -271,155 +263,3 @@ def update_parcours(filename, results, categories, date):
         for line in new_lines:
             file.write(line + "\n\n")
 
-# def update_parcours( filename, results, categories, date):
-#     last_achivements = {}
-#     for elt in results:
-#         winner = results[elt][0]
-#         category = results[elt][2]
-#         if category =='A':
-#             last_achivements[winner] = f'{category} ↔ '
-#         else:
-#             last_achivements[winner] = f'{category} ↑ '
-        
-#     # En fait puisqu'il peut avoir des rachats on va d'abord faire la mise à jour des gagnants et puis après
-#     # faire celle des perdants
-#     for elt in results:
-
-#         loser = results[elt][1]
-#         category = results[elt][2]
-#         if loser in last_achivements:
-#             #vérifier s'il a joué un match qu'il a gagné donc c'est du rachat
-#             rachat =False
-#             for elt in results:
-#                 if loser in elt:
-#                     if results[elt][0]== loser:
-#                         rachat =True
-#                         break
-#             if rachat == False:
-#                 print("I don't understand why this person is a loser mais a été enregistré comme un winner sans rachat")
-#                 print(last_achivements)
-#                 print("Individu",loser)
-#                 print(results)
-#                 break
-#             continue
-#         if chr(ord(category)+1) in categories:
-    
-#             last_achivements[loser] = f'{category} ↓ '
-#         else:
-
-#             last_achivements[loser] = f'{category} ↔ '
-        
-#     with open(filename, "r", encoding="utf-8") as file:
-#         lines = file.readlines()
-#     new_lines = []
-#     for line in lines:
-#         line = line.strip()
-#         if line =="":
-#             continue
-#         components = line.split(':')
-#         person = components[0].split('(')[0].strip()
-#         if person in last_achivements:
-#             new_lines.append(line +last_achivements[person])
-#             del last_achivements[person]
-#         else:
-#             new_lines.append(line)
-    
-#     if len(last_achivements)>0:
-#         for elt in last_achivements:
-#             new_lines.append(f"{elt}({date.strftime('%d-%m-%Y')}) : {last_achivements[elt]}")
-    
-#     with open(filename, "w", encoding="utf-8") as file:
-#         for line in new_lines:
-#             file.write(line+"\n\n")
-
-# def degrade_parcours( filename):
-#     with open(filename, 'r', encoding='utf-8') as file:
-#         lines = file.readlines()
-#     for line in lines :
-#         if line == "\n":
-#             continue
-#         print(len(line),"  ", end="")
-#         line = line[:-3] + "\n"
-#         print(len(line))
-#     with open(filename, 'w', encoding='utf-8') as file:
-#         for line in lines:
-#             file.write(line)
-
-
-# def read_matches(filename, current_date):
-#     with open(filename, 'r', encoding='utf-8') as file:
-#         lines = file.readlines()
-
-#     date_str = lines[0].strip().split(': ')[1]
-#     date = datetime.strptime(date_str, '%d-%m-%Y')
-    
-#     moment = date.strftime('%d-%m-%Y')!=current_date.strftime('%d-%m-%Y')
-#     results =  { }
-     
-#     current_category = None
-#     for line in lines[2:]:
-
-#         line = line.strip()
-
-#         if line.startswith("Category"):
-#             current_category = line.split(':')[0].split(' ')[1]
-#             if current_category =='':
-#                 print("Euh le nom d'une catégorie n'a pas été trouvée")
-#                 exit()
-
-#         elif line != '' and "vs." in line:
-            
-#             match_info = line.replace(' ', '').split(":")
-
-#             joueurs = match_info[0].split("vs.")
-            
-#             if joueurs[1].startswith("(Loserof"):
-#                 match = joueurs[1].replace("Loserof", '')
-#                 if match in results:
-#                     joueurs[1] = results[match][1]## ici on prend le perdant
-#                 else :
-#                     print("Liste de joueurs détectée", joueurs)
-#                     print("Winner détecté", result)
-#                     continue
-
-#             result = match_info[1]
-            
-
-#             if result == '':
-#                 if moment == True :
-#                     result = rd.choice(joueurs)
-#                 else :
-#                     continue
-#             if result not in joueurs :
-#                 trouve = False
-#                 for elt in joueurs:
-#                     if result in elt and elt.startswith("(Loserof"):
-#                         trouve = True
-#                 if trouve == False:
-#                     print("Euh, je ne comprends pas pourquoi ce winner ne fait pas partie des joueurs pour le match joué")
-#                     print("Liste de joueurs détectée", joueurs)
-#                     print("Winner détecté", result)
-#                     exit()
-
-#             match = f'({joueurs[0]}vs{joueurs[1]})'
-#             winner = result 
-
-#             if len(joueurs)!= 2:
-#                 print("Euh , je ne comprends pas pourquoi joueurs il a choppé plus de deux éléments")  
-#                 print("Liste de joueurs détectée", joueurs)
-#                 print("Winner détecté", result)
-#                 exit()
-#             if joueurs[0] == joueurs[1]:
-#                 print("Euh, une doublure se promène")      
-#                 print("Liste de joueurs détectée", joueurs)
-#                 print("Winner détecté", result)
-#                 exit()    
-#             for elt in joueurs:
-#                 if elt!=winner:
-#                     loser = elt
-#             # ici c'est sûr à 100% que quelque chose est assigné à loser, donc pas de contrôle
-#             # sur le fait que loser existe comme ça le contraire nous signalera directement l'erreur
-
-#             results[match] = [winner, loser, current_category]
-    
-#     return date, results, moment

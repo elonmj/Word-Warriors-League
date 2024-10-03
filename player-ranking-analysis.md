@@ -37,6 +37,13 @@ Le système de classement actuel se base sur le ratio Victoires/Matchs Joués (V
 * **Ajouter des bonus/malus stratégiques :** Récompenser les victoires contre des joueurs mieux classés et pénaliser les défaites contre des joueurs moins bien classés.
 * **Créer des classements par catégorie :** Permettre de comparer les joueurs au sein de leur propre catégorie.
 
+* **Classement**
+1 Une défaite en A coûte moins cher qu'une défaite en B, qui coûte moins qu'en C laquelle coûte moins qu'en D.
+2 Une victoire en D rapporte moins qu'une victoire en C et encore moins qu'une victoire en B laquelle rapporte moins qu'en A
+3 Une victoire contre un adversaire plus côté rapporte plus qu'une victoire contre un adversaire moins côté.
+4 Une défaite contre un adversaire moins côté coûte plus cher qu'une défaite contre un adversaire plus côté.
+5 On a 12 semaines à jouer, l'inactivité pendant une semaine suppose une baisse de performance, donc non seulement la côte n'est pas gonflée mais aussi le bénéfice lié à la catégorie diminue d'un 12ème du pourcentage et pourra remonter d'un sizième par match joué par la suite jusqu'à revenir à la normale 
+
 ## Conclusion
 
 En intégrant le classement hebdomadaire dynamique, le nouveau système de parcours et le système de décroissance pour les joueurs inactifs, le classement deviendra plus précis, dynamique et représentatif de la forme actuelle des joueurs. Les autres améliorations potentielles pourront être étudiées ultérieurement pour affiner encore davantage le système.
