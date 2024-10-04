@@ -52,7 +52,7 @@ if RESET_TO_OLD == True:
     duplicate("OldParcours.txt", "Parcours.txt")
     exit() 
 
-dir = ".Data/"
+
 #Voir l'update actuel des  category
  
  # Récupération de l'état passé
